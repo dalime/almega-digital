@@ -35,6 +35,7 @@ export default function Clients(): JSX.Element {
 				{renderClient(process.env.REACT_APP_CLIENT_2_IMG, process.env.REACT_APP_CLIENT_2_URL)}
 				{renderClient(process.env.REACT_APP_CLIENT_3_IMG, process.env.REACT_APP_CLIENT_3_URL)}
 				{renderClient(process.env.REACT_APP_CLIENT_4_IMG, process.env.REACT_APP_CLIENT_4_URL)}
+				{renderClient(process.env.REACT_APP_CLIENT_5_IMG, process.env.REACT_APP_CLIENT_5_URL)}
 			</div>
 			<div className="section" />
 			<Button type="primary" shape="round" icon={<FolderOpenFilled />} size={'large'} onClick={() => history.push('portfolio')}>

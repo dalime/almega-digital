@@ -17,7 +17,7 @@ const validateMessages = {
 
 export default function Contact(): JSX.Element {
 	const onFinish = (values: { user: { email: string, message: string, name: string, website: string, } }) => {
-		console.log(values);
+		console.log(values)
 	}
 
 	return (

@@ -1,5 +1,7 @@
 import React, { CSSProperties, } from 'react'
-import { Carousel, } from 'antd'
+import { Carousel, Typography, } from 'antd'
+
+const { Text, } = Typography
 
 const contentStyle: CSSProperties = {
 	height: '160px',
@@ -7,16 +9,15 @@ const contentStyle: CSSProperties = {
 	lineHeight: '160px',
 	textAlign: 'center',
 	background: '#364d79',
-	whiteSpace: 'pre-wrap',
-	wordWrap: 'break-word',
+	display: 'flex',
 	flexWrap: 'wrap',
 }
 
 export default function Reviews(): JSX.Element {
 	const renderReview = (review: string): JSX.Element => {
 		return review.length ? (
-			<div style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word', }}>
-				<h3 style={contentStyle}>{review}</h3>
+			<div style={{ display: 'flex', }}>
+				<Text style={contentStyle}>{review}</Text>
 			</div>
 		) : <></>
 	}
