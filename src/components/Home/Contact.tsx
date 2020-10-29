@@ -1,5 +1,7 @@
 import React from 'react'
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button, Typography, } from 'antd'
+
+const { Title, } = Typography
 
 const layout = {
 	labelCol: { span: 8 },
@@ -21,8 +23,9 @@ export default function Contact(): JSX.Element {
 	}
 
 	return (
-		<div style={{ width: '80%', display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center', }}>
-			<Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+		<div style={{ width: '100%', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }}>
+			<Title level={2}>Get a Free Quote</Title>
+			<Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages} style={{ marginTop: 20, }}>
 				<Form.Item name={['user', 'name']} label="Name" rules={[{ required: true, }]}>
 					<Input />
 				</Form.Item>

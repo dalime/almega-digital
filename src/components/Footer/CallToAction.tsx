@@ -8,7 +8,7 @@ const { Title, Text, } = Typography
 
 export default function CallToAction(): JSX.Element {
 	return (
-		<div style={{ display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', background: '#f8f8f8', padding: 20, }}>
+		<div style={{ display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', background: '#d8e5f8', padding: 20, borderRadius: 50, }}>
 			<Title level={3}>Your digital ideas from beginning to end</Title>
 			<div>
 				<Email />
