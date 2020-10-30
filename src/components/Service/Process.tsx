@@ -1,8 +1,9 @@
 import React, { useState, } from 'react'
-import { Steps, } from 'antd'
+import { Typography, Steps, } from 'antd'
 
 import ServiceImage from './ServiceImage'
 
+const { Title, } = Typography
 const { Step, } = Steps
 
 const steps = [
@@ -25,6 +26,7 @@ function Process(): JSX.Element {
 
 	return (
 		<>
+			<Title level={2}>Our Process</Title>
 			<Steps current={current} onChange={(newCurrent: number) => setCurrent(newCurrent)}>
 				{steps.map((step: { title: string, content: string, }, index: number) => {
 					return <Step key={index} title={step.title} description={step.content} />
