@@ -1,17 +1,17 @@
 import React from 'react'
 
 import Hero from './Hero'
-// import Problem from './Problem'
+import Introduction from './Introduction'
 import Packages from './Packages'
 import Reviews from './Reviews'
 import Clients from './Clients'
 import Contact from './Contact'
 
 export default function Home(): JSX.Element {
-	const renderSection = (section: JSX.Element): JSX.Element => {
+	const renderSection = (section: JSX.Element, first?: boolean): JSX.Element => {
 		return (
 			<>
-				<div className="section" />
+				{!first && <div className="section" />}
 				{section}
 			</>
 		)
@@ -19,8 +19,8 @@ export default function Home(): JSX.Element {
 
 	return (
 		<div style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', }}>
-			{renderSection(<Hero />)}
-			{/* {renderSection(<Problem />)} */}
+			{renderSection(<Hero />, true)}
+			{renderSection(<Introduction />)}
 			{renderSection(<Packages />)}
 			{renderSection(<Reviews />)}
 			{renderSection(<Clients />)}

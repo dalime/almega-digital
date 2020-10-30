@@ -1,16 +1,16 @@
 import React from 'react'
 import { Typography, } from 'antd'
 
-import logoImg from '../../images/logo512.png'
+import Checks from '../Common/Checks'
 
-const { Title } = Typography
+const { Title, } = Typography
 
 export default function Hero(): JSX.Element {
 	return (
-		<div style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', }}>
-			<img src={logoImg} alt="Almega Digital logo" style={{ width: 100, height: 100, }} />
-			<Title>Almega Digital</Title>
-			<Title level={3}>Your digital ideas from beginning to end</Title>
+		<div style={{ width: '100vw', position: 'relative', textAlign: 'center', }} className="hero-parallax">
+			<Title style={{ position: 'absolute', top: '25%', left: '50%', transform: 'translate(-50%, -50%)', width: '100%', }}>Your digital ideas from beginning to end</Title>
+			<Title level={2} style={{ position: 'absolute', top: '35%', left: '50%', transform: 'translate(-50%, -50%)', width: '100%', }}>A Web Development Agency to fulfill all your ideas</Title>
+			<div style={{ position: 'absolute', top: '65%', left: '50%', transform: 'translate(-50%, -50%)', }}><Checks /></div>
 		</div>
 	)
 }

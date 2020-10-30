@@ -1,15 +1,11 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
-import { Typography, Image, Button, } from 'antd'
-import { FolderOpenFilled, } from '@ant-design/icons'
+import { Typography, Image, } from 'antd'
 
 import Blank from '../../images/blank.png'
 
 const { Title } = Typography
 
 export default function Clients(): JSX.Element {
-	const history = useHistory()
-
 	const renderClient = (imgSrc: string | undefined, url: string | undefined): JSX.Element => {
 		return imgSrc && imgSrc.length && url && url.length ? (
 			<Image
@@ -29,7 +25,7 @@ export default function Clients(): JSX.Element {
 
 	return (
 		<div style={{ width: '100%', }}>
-			<Title level={2}>Notable Cients</Title>
+			<Title level={2}>{process.env.REACT_APP_CLIENTS_TITLE || ''}</Title>
 			<div style={{ display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', }}>
 				{renderClient(process.env.REACT_APP_CLIENT_1_IMG, process.env.REACT_APP_CLIENT_1_URL)}
 				{renderClient(process.env.REACT_APP_CLIENT_2_IMG, process.env.REACT_APP_CLIENT_2_URL)}
@@ -37,10 +33,6 @@ export default function Clients(): JSX.Element {
 				{renderClient(process.env.REACT_APP_CLIENT_4_IMG, process.env.REACT_APP_CLIENT_4_URL)}
 				{renderClient(process.env.REACT_APP_CLIENT_5_IMG, process.env.REACT_APP_CLIENT_5_URL)}
 			</div>
-			<div className="section" />
-			<Button type="primary" shape="round" icon={<FolderOpenFilled />} size={'large'} onClick={() => history.push('portfolio')}>
-				See Portfolio
-      </Button>
 		</div>
 	)
 }

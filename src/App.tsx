@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom'
 import { Layout, } from 'antd'
 import Navigation from './components/Navigation'
 import Home from './components/Home'
-import Portfolio from './components/Portfolio'
 import Service from './components/Service'
 import About from './components/About'
 import PageFooter from './components/Footer'
@@ -25,9 +24,6 @@ function App(): JSX.Element {
 						</Route>
 						<Route path='/service'>
 							<Service />
-						</Route>
-						<Route path='/portfolio'>
-							<Portfolio />
 						</Route>
 						<Route path='/'>
 							<Home />

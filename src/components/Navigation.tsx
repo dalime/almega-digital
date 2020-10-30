@@ -15,7 +15,6 @@ export default function Navigation(): JSX.Element {
 		<>
 			<Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
 				<Menu.Item key="1" onClick={() => handleClick('')}>Home</Menu.Item>
-				<Menu.Item key="2" onClick={() => handleClick('portfolio')}>Portfolio</Menu.Item>
 				<Menu.Item key="3" onClick={() => handleClick('service')}>Service</Menu.Item>
 				<Menu.Item key="4" onClick={() => handleClick('about')}>About</Menu.Item>
 				<Menu.Item key="5" onClick={() => { }} id="menu-email-box">
