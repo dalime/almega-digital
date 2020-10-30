@@ -1,15 +1,37 @@
-import React from 'react'
+import React, { useState, } from 'react'
 import { Steps, } from 'antd'
+
+import ServiceImage from './ServiceImage'
 
 const { Step, } = Steps
 
+const steps = [
+	{
+		title: 'Strategy Call',
+		content: 'We will have a strategy call to discuss requirements and scope.',
+	},
+	{
+		title: 'Delivery',
+		content: 'Almega Digital will deliver designs and/or software deliverables as agreed upon in the Strategy Call.',
+	},
+	{
+		title: 'Feedback',
+		content: 'Any feedback you have for deliverables will be discussed and applied in feedback rounds.',
+	},
+]
+
 function Process(): JSX.Element {
+	const [current, setCurrent] = useState<number>(0)
+
 	return (
-		<Steps>
-			<Step title="Strategy Call" description="We will have a strategy call to discuss requirements and scope." />
-			<Step title="UI Mockups" description="Almega Digital will provide you with robust UI mockups so you know exactly what you aregetting." />
-			<Step title="Delivery" description="You will receive your requested product fully functional and deployed." />
-		</Steps>
+		<>
+			<Steps current={current} onChange={(newCurrent: number) => setCurrent(newCurrent)}>
+				{steps.map((step: { title: string, content: string, }, index: number) => {
+					return <Step key={index} title={step.title} description={step.content} />
+				})}
+			</Steps>
+			<ServiceImage step={current} />
+		</>
 	)
 }
 
