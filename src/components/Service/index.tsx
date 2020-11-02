@@ -1,5 +1,5 @@
-import React, { useEffect, } from 'react'
-import { useHistory, } from 'react-router-dom'
+import React, { useEffect, useRef, } from 'react'
+import { useHistory, withRouter, RouteComponentProps, } from 'react-router-dom'
 import { Button, } from 'antd'
 import { TeamOutlined, } from '@ant-design/icons'
 
@@ -7,24 +7,43 @@ import Packages from './Packages'
 import Process from './Process'
 import Contact from '../Common/Contact'
 
-export default function Service(): JSX.Element {
+interface Props extends RouteComponentProps { }
+
+interface StateObject {
+	service: number
+}
+
+function Service(props: Props): JSX.Element {
+	const { location, } = props
+	const { state, } = location
+
+	const stateObj: StateObject = state as StateObject
+
 	const history = useHistory()
+
+	const contactRef = useRef<HTMLDivElement | null>(null)
 
 	useEffect(() => {
 		window.scrollTo(0, 0)
 	})
 
+	const scrollToContact = (): void => {
+		if (contactRef.current) window.scrollTo(0, contactRef.current.offsetTop)
+	}
+
 	return (
 		<div style={{ width: '100%', paddingLeft: '10%', paddingRight: '10%', marginTop: '10vh', }}>
-			<Packages />
+			<Packages service={stateObj ? stateObj.service : 1} scrollToContact={scrollToContact} />
 			<div className="section" />
 			<Process />
 			<div className="section" />
 			<Button type="primary" shape="round" icon={<TeamOutlined />} size={'large'} onClick={() => history.push('about')}>
 				Who We Are
       </Button>
-			<div className="section" />
+			<div className="section" ref={contactRef} />
 			<Contact />
 		</div>
 	)
 }
+
+export default withRouter(Service)
