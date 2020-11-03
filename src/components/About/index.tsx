@@ -6,7 +6,7 @@ import { InboxOutlined, } from '@ant-design/icons'
 import Story from './Story'
 import Hero from './Hero'
 import Values from './Values'
-import Team from './Team'
+// import Team from './Team'
 import Contact from '../Common/Contact'
 
 export default function About(): JSX.Element {
@@ -30,7 +30,7 @@ export default function About(): JSX.Element {
 			{renderSection(<Hero />)}
 			{renderSection(<Story />)}
 			{renderSection(<Values />)}
-			{renderSection(<Team />)}
+			{/* {renderSection(<Team />)} */}
 			{renderSection(<Button type="primary" shape="round" icon={<InboxOutlined />} size={'large'} onClick={() => history.push('service')}>
 				Our Service
       </Button>)}

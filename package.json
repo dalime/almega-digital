@@ -33,7 +33,7 @@
 	"scripts": {
 		"start:client": "craco start",
 		"start:server": "node server/index.js",
-		"start": "run-p start:server start:client",
+		"start": "run-p start:client",
 		"build": "craco build",
 		"test": "craco test",
 		"eject": "react-scripts eject"
