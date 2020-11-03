@@ -27,8 +27,14 @@ app.post('/contact', (req, res) => {
 	const mailOptions = {
 		from: req.body.email,
 		to: process.env.CONTACT_EMAIL,
-		subject: req.body.subject,
-		text: req.body.message,
+		subject: `NEW ${req.body.servicePackage} Inquiry`,
+		text: `
+			${req.body.name.length ? 'Name: ' + req.body.name + '\n' : ''}
+			Email: ${req.body.email} \
+			${req.body.website.length ? 'Website: ' + req.body.website + '\n' : ''}
+			${req.body.servicePackage.length ? 'Package: ' + req.body.servicePackage + '\n' : ''}
+			${req.body.message.length ? 'Message: ' + req.body.message : 'No message delivered.'}
+		`,
 	}
 
 	transporter.sendMail(mailOptions, (error, info) => {
