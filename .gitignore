@@ -3,6 +3,13 @@
 # dotenv
 .env
 
+# gmail configuration
+credentials.json
+token.json
+
+# testing
+test.js
+
 # dependencies
 /node_modules
 /.pnp

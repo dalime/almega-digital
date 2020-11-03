@@ -1,6 +1,8 @@
 import React, { useState, ReactText, } from 'react'
-import { Form, Input, Button, Typography, Dropdown, Menu, } from 'antd'
+import { Form, Input, Button, Typography, Dropdown, Menu, message as AntMessage, } from 'antd'
 import { DownOutlined, FormatPainterOutlined, CodeOutlined, PartitionOutlined, } from '@ant-design/icons'
+
+import { contactAlmega, } from '../../actions'
 
 const { Title, } = Typography
 
@@ -29,7 +31,14 @@ export default function Contact(): JSX.Element {
 	const [packageChoice, setPackageChoice] = useState<"Web & App Design" | "Website & App Development" | "Design & IT Consulting" | "Packages">("Packages")
 
 	const onFinish = (values: { user: { email: string, message: string, name: string, website: string, } }) => {
-		console.log(values)
+		const { user, } = values
+		const { email, message, name, website, } = user
+
+		contactAlmega(name, email, message || '', packageChoice === "Packages" ? '' : packageChoice.toString(), website || '').then(() => {
+			AntMessage.success('You will be contacted shortly.')
+		}).catch(() => {
+			AntMessage.error('Sorry, we could not send your inquiry at this time.')
+		})
 	}
 
 	const handlePackagePick = (info: MenuClickEvent): void => {

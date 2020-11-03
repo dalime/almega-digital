@@ -6,24 +6,21 @@ const nodemailer = require('nodemailer')
 require('dotenv').config()
 
 const app = express()
-const PORT = 8000
+const PORT = 6969
 
-app.use(bodyParser)
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true, }))
 app.use(cookieParser)
 
-const transporter = nodemailer.createTransport({
-	service: 'gmail',
-	auth: {
-		user: process.env.GMAIL_ACCT,
-		pass: process.env.GMAIL_PW,
-	},
+app.listen(PORT, function () {
+	console.log(`Server is listening on PORT ${PORT}`)
 })
 
-app.get('/', (req, res) => {
+app.get('/', function (req, res) {
 	res.status(200).send('Almega Digital server')
 })
 
-app.post('/contact', (req, res) => {
+app.post('/contact', function (req, res) {
 	const mailOptions = {
 		from: req.body.email,
 		to: process.env.CONTACT_EMAIL,
@@ -37,15 +34,19 @@ app.post('/contact', (req, res) => {
 		`,
 	}
 
-	transporter.sendMail(mailOptions, (error, info) => {
+	const transporter = nodemailer.createTransport({
+		service: 'gmail',
+		auth: {
+			user: process.env.GMAIL_ACCT,
+			pass: process.env.GMAIL_PW,
+		},
+	})
+
+	transporter.sendMail(mailOptions, function (error, info) {
 		if (error) {
 			res.status(400).send('Error sending email: ', error)
 		} else {
 			res.status(200).send('Email sent successfully: ', info)
 		}
 	})
-})
-
-app.listen(PORT, (req, res) => {
-	console.log(`Server is listening on PORT ${PORT}`)
 })
