@@ -8,6 +8,7 @@ const { Title, Paragraph, } = Typography
 
 interface Props {
 	heading: string
+	metaTitle: string
 	imgSrc: string
 	imgAlt: string
 	description: string
@@ -16,28 +17,29 @@ interface Props {
 	pointTwo: string
 	pointThree: string
 	scrollToContact(): void
+	mobile?: boolean
 }
 
 export default function Package(props: Props): JSX.Element {
-	const { heading, imgSrc, imgAlt, description, startingPrice, pointOne, pointTwo, pointThree, scrollToContact, } = props
+	const { heading, imgSrc, imgAlt, description, startingPrice, pointOne, pointTwo, pointThree, scrollToContact, mobile, } = props
 
 	return (
 		<div>
-			<Title level={2}>{heading}</Title>
-			<div style={{ display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', }}>
+			<Title level={mobile ? 3 : 2}>{heading}</Title>
+			<div style={{ display: 'flex', flex: 1, flexDirection: mobile ? 'column' : 'row', justifyContent: 'space-between', alignItems: mobile ? 'center' : 'flex-start', }}>
 				<Image
 					src={imgSrc}
 					alt={imgAlt}
-					width={400}
+					width={mobile ? 200 : 400}
 					placeholder={
 						<Image
 							src={Blank}
 							width={150}
 						/>
 					}
-					style={{ minWidth: 200, }}
+					style={{ minWidth: 200, height: mobile ? 200 : 'auto', }}
 				/>
-				<div>
+				<div style={mobile ? { marginTop: 20, } : {}}>
 					<Paragraph style={{ marginLeft: 20, textAlign: 'left', }} >{description}</Paragraph>
 					<ul style={{ textAlign: 'left', marginTop: 20, }}>
 						<li>{pointOne}</li>

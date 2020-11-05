@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory, } from 'react-router-dom'
 import { Row, Button, } from 'antd'
-import { FolderOpenFilled, } from '@ant-design/icons'
+import { FolderOpenFilled, FormatPainterOutlined, CodeOutlined, PartitionOutlined, } from '@ant-design/icons'
 
 import { Props, } from '../../types'
 import PackageCard from './PackageCard'
@@ -21,9 +21,11 @@ export default function Packages(props: Props): JSX.Element {
 		<PackageCard key={3} imgSrc={Present} imgAlt={'Meeting between two individuals next to two laptops'} metaTitle={process.env.REACT_APP_SERVICE_PACKAGE_3_TITLE || ''} metaDesc={process.env.REACT_APP_SERVICE_PACKAGE_3_DESC || ''} metaOne={process.env.REACT_APP_SERVICE_PACKAGE_3_POINT_1 || ''} metaTwo={process.env.REACT_APP_SERVICE_PACKAGE_3_POINT_2 || ''} metaThree={process.env.REACT_APP_SERVICE_PACKAGE_3_POINT_3 || ''} startingPrice={process.env.REACT_APP_SERVICE_PACKAGE_3_PRICE || ''} service={3} />,
 	]
 
+	const PackageIcons: JSX.Element[] = [<FormatPainterOutlined />, <CodeOutlined />, <PartitionOutlined />]
+
 	return (
 		<>
-			{mobile ? <MobilePackages packages={PackagesElements} /> : (
+			{mobile ? <MobilePackages packages={PackagesElements} icons={PackageIcons} /> : (
 				<div className="site-card-wrapper">
 					<Row gutter={16}>
 						{PackagesElements}
