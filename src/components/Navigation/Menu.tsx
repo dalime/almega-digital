@@ -2,9 +2,9 @@ import React from 'react'
 import { useHistory, } from 'react-router-dom'
 import { Menu, } from 'antd';
 
-import Email from './Common/Email'
+import Email from '../Common/Email'
 
-export default function Navigation(): JSX.Element {
+export default function Desktop(): JSX.Element {
 	const history = useHistory()
 
 	const handleClick = (route: string): void => {
