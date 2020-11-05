@@ -12,22 +12,24 @@ import './App.less'
 const { Content, Footer, } = Layout
 
 function App(): JSX.Element {
+	const mobile = window.innerWidth <= 760
+
 	return (
 		<Router>
 			<Layout>
-				{window.innerWidth <= 760 && <Mobile />}
+				{mobile && <Mobile />}
 				<Layout className="layout">
-					{window.innerWidth > 760 && <Desktop />}
-					<Content style={{ minHeight: '90vh', width: '100vw', textAlign: 'center', marginTop: '10vh', }}>
+					{!mobile && <Desktop />}
+					<Content style={{ minHeight: '90vh', width: '100vw', textAlign: 'center', marginTop: mobile ? 0 : '10vh', }}>
 						<Switch>
 							<Route path='/about'>
-								<About />
+								<About mobile={mobile} />
 							</Route>
 							<Route path='/service'>
-								<Service />
+								<Service mobile={mobile} />
 							</Route>
 							<Route path='/'>
-								<Home />
+								<Home mobile={mobile} />
 							</Route>
 						</Switch>
 					</Content>

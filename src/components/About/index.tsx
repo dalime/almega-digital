@@ -3,13 +3,14 @@ import { useHistory, } from 'react-router-dom'
 import { Button, } from 'antd'
 import { InboxOutlined, } from '@ant-design/icons'
 
+import { Props, } from '../../types'
 import Story from './Story'
 import Hero from './Hero'
 import Values from './Values'
 // import Team from './Team'
 import Contact from '../Common/Contact'
 
-export default function About(): JSX.Element {
+export default function About(props: Props): JSX.Element {
 	const history = useHistory()
 
 	useEffect(() => {

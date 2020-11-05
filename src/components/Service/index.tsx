@@ -3,17 +3,18 @@ import { useHistory, withRouter, RouteComponentProps, } from 'react-router-dom'
 import { Button, } from 'antd'
 import { TeamOutlined, } from '@ant-design/icons'
 
+import { Props } from '../../types'
 import Packages from './Packages'
 import Process from './Process'
 import Contact from '../Common/Contact'
 
-interface Props extends RouteComponentProps { }
+interface ServiceProps extends RouteComponentProps, Props { }
 
 interface StateObject {
 	service: number
 }
 
-function Service(props: Props): JSX.Element {
+function Service(props: ServiceProps): JSX.Element {
 	const { location, } = props
 	const { state, } = location
 

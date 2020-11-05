@@ -1,22 +1,26 @@
 import React, { CSSProperties, } from 'react'
 import { Carousel, Typography, } from 'antd'
 
+import { Props, } from '../../types'
+
 const { Text, } = Typography
 
-const contentStyle: CSSProperties = {
-	height: 200,
-	color: '#fff',
-	textAlign: 'center',
-	alignItems: 'center',
-	background: '#364d79',
-	display: 'flex',
-	flexWrap: 'wrap',
-	width: '100%',
-	paddingLeft: '10%',
-	paddingRight: '10%',
-}
+export default function Reviews(props: Props): JSX.Element {
+	const { mobile, } = props
 
-export default function Reviews(): JSX.Element {
+	const contentStyle: CSSProperties = {
+		height: mobile ? 400 : 200,
+		color: '#fff',
+		textAlign: 'center',
+		alignItems: 'center',
+		background: '#364d79',
+		display: 'flex',
+		flexWrap: 'wrap',
+		width: '100%',
+		paddingLeft: '10%',
+		paddingRight: '10%',
+	}
+
 	const renderReview = (review: string): JSX.Element => {
 		return review.length ? (
 			<div style={{ display: 'flex', }}>
@@ -28,7 +32,6 @@ export default function Reviews(): JSX.Element {
 
 	return (
 		<div style={{ width: '100%', }}>
-			{/* <Carousel autoplay autoplaySpeed={3000}> */}
 			<Carousel>
 				{renderReview(process.env.REACT_APP_REVIEW_1 || '')}
 				{renderReview(process.env.REACT_APP_REVIEW_2 || '')}
