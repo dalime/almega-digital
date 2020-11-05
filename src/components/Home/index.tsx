@@ -31,7 +31,7 @@ export default function Home(props: Props): JSX.Element {
 			{renderSection(<Packages mobile={mobile} />)}
 			{renderSection(<Reviews mobile={mobile} />)}
 			{renderSection(<Clients mobile={mobile} />)}
-			{renderSection(<Contact />)}
+			{renderSection(<Contact mobile={mobile} />)}
 		</div>
 	)
 }

@@ -22,7 +22,7 @@ export default function About(props: Props): JSX.Element {
 	const renderSection = (section: JSX.Element, first?: boolean): JSX.Element => {
 		return (
 			<>
-				{!first && <div className="section" />}
+				<div className={first ? "" : "section"} style={first ? { marginTop: 30, } : {}} />
 				{section}
 			</>
 		)
@@ -37,7 +37,7 @@ export default function About(props: Props): JSX.Element {
 			{renderSection(<Button type="primary" shape="round" icon={<InboxOutlined />} size={'large'} onClick={() => history.push('service')}>
 				Our Service
       </Button>)}
-			{renderSection(<Contact />)}
+			{renderSection(<Contact mobile={mobile} />)}
 		</div>
 	)
 }

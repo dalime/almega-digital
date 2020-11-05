@@ -27,7 +27,13 @@ interface MenuClickEvent {
 	keyPath: ReactText[]
 }
 
-export default function Contact(): JSX.Element {
+interface Props {
+	mobile?: boolean
+}
+
+export default function Contact(props: Props): JSX.Element {
+	const { mobile, } = props
+
 	const [packageChoice, setPackageChoice] = useState<"Web & App Design" | "Website & App Development" | "Design & IT Consulting" | "Packages">("Packages")
 
 	const onFinish = (values: { user: { email: string, message: string, name: string, website: string, } }) => {
@@ -82,7 +88,7 @@ export default function Contact(): JSX.Element {
 				<Form.Item name={['user', 'message']} label="Message" rules={[{ required: true, }]}>
 					<Input.TextArea />
 				</Form.Item>
-				<Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+				<Form.Item wrapperCol={{ ...layout.wrapperCol, offset: mobile ? 0 : 8 }}>
 					<Button type="primary" htmlType="submit">
 						Submit
 					</Button>

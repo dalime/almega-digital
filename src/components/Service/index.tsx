@@ -33,7 +33,7 @@ function Service(props: ServiceProps): JSX.Element {
 	}
 
 	return (
-		<div style={{ width: '100%', paddingLeft: '10%', paddingRight: '10%', marginTop: mobile ? 0 : '10vh', }}>
+		<div style={{ width: '100%', paddingLeft: '10%', paddingRight: '10%', marginTop: mobile ? 30 : '10vh', }}>
 			<Packages service={stateObj ? stateObj.service : 1} scrollToContact={scrollToContact} />
 			<div className="section" />
 			<Process />
@@ -42,7 +42,7 @@ function Service(props: ServiceProps): JSX.Element {
 				Who We Are
       </Button>
 			<div className="section" ref={contactRef} />
-			<Contact />
+			<Contact mobile={mobile} />
 		</div>
 	)
 }
