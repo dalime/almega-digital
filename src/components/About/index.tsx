@@ -11,16 +11,18 @@ import Values from './Values'
 import Contact from '../Common/Contact'
 
 export default function About(props: Props): JSX.Element {
+	const { mobile, } = props
+
 	const history = useHistory()
 
 	useEffect(() => {
 		window.scrollTo(0, 0)
 	})
 
-	const renderSection = (section: JSX.Element): JSX.Element => {
+	const renderSection = (section: JSX.Element, first?: boolean): JSX.Element => {
 		return (
 			<>
-				<div className="section" />
+				{!first && <div className="section" />}
 				{section}
 			</>
 		)
@@ -28,8 +30,8 @@ export default function About(props: Props): JSX.Element {
 
 	return (
 		<div style={{ paddingLeft: '10vw', paddingRight: '10vw', }}>
-			{renderSection(<Hero />)}
-			{renderSection(<Story />)}
+			{renderSection(<Hero />, true)}
+			{renderSection(<Story mobile={mobile} />)}
 			{renderSection(<Values />)}
 			{/* {renderSection(<Team />)} */}
 			{renderSection(<Button type="primary" shape="round" icon={<InboxOutlined />} size={'large'} onClick={() => history.push('service')}>

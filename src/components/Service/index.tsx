@@ -15,7 +15,7 @@ interface StateObject {
 }
 
 function Service(props: ServiceProps): JSX.Element {
-	const { location, } = props
+	const { location, mobile, } = props
 	const { state, } = location
 
 	const stateObj: StateObject = state as StateObject
@@ -33,7 +33,7 @@ function Service(props: ServiceProps): JSX.Element {
 	}
 
 	return (
-		<div style={{ width: '100%', paddingLeft: '10%', paddingRight: '10%', marginTop: '10vh', }}>
+		<div style={{ width: '100%', paddingLeft: '10%', paddingRight: '10%', marginTop: mobile ? 0 : '10vh', }}>
 			<Packages service={stateObj ? stateObj.service : 1} scrollToContact={scrollToContact} />
 			<div className="section" />
 			<Process />

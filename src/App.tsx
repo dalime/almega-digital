@@ -34,7 +34,7 @@ function App(): JSX.Element {
 						</Switch>
 					</Content>
 					<Footer style={{ marginTop: '10vh', }}>
-						<PageFooter />
+						<PageFooter mobile={mobile} />
 					</Footer>
 				</Layout>
 			</Layout>

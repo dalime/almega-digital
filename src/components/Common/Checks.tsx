@@ -6,19 +6,22 @@ import Email from './Email'
 
 const { Text, } = Typography
 
-export default function Checks(): JSX.Element {
+interface Props {
+	mobile?: boolean
+}
+
+export default function Checks(props: Props): JSX.Element {
+	const { mobile, } = props
+
 	const renderCheckPoint = (text: string): JSX.Element => {
-		return (
-			<>
-				<CheckSquareOutlined /><Text>{text}</Text>
-			</>
-		)
+		const Set: JSX.Element = <><CheckSquareOutlined /><Text style={{ marginLeft: 5, }}>{text}</Text></>
+		return mobile ? <div>{Set}</div> : Set
 	}
 
 	return (
 		<div>
 			<Email />
-			<div style={{ display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', marginTop: 10, }}>
+			<div style={{ display: 'flex', flex: 1, flexDirection: mobile ? 'column' : 'row', justifyContent: 'space-evenly', alignItems: mobile ? 'flex-start' : 'center', marginTop: 10, }}>
 				{renderCheckPoint('Quality')}
 				{renderCheckPoint('Timeliness')}
 				{renderCheckPoint('Communication')}
