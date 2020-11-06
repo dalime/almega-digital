@@ -13,7 +13,7 @@ export default function Hero(props: Props): JSX.Element {
 		<div style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', }}>
 			<img src={logoImg} alt="Almega Digital logo" style={{ width: 100, height: 100, }} />
 			<Title>Almega Digital</Title>
-			<Title level={3} style={{ paddingLeft: mobile ? 10 : 0, paddingRight: mobile ? 10 : 0, }}>Web and Software Development & Design Agency</Title>
+			<Title level={3} style={{ paddingLeft: mobile ? 12 : 0, paddingRight: mobile ? 12 : 0, }}>Web and Software Development & Design Agency</Title>
 		</div>
 	)
 }

@@ -14,10 +14,12 @@ export default function Mobile(): JSX.Element {
 
 	return (
 		<Sider
-			breakpoint="lg"
+			breakpoint="md"
 			collapsedWidth="0"
 			collapsed={isCollapsed}
 			onClick={() => toggleCollapsed()}
+			theme="dark"
+			reverseArrow
 		>
 			<Menu mobile={true} closeMobileMenu={toggleCollapsed} />
 		</Sider>

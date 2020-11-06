@@ -46,7 +46,7 @@ function Service(props: ServiceProps): JSX.Element {
 	]
 
 	return (
-		<div style={{ width: '100%', paddingLeft: '10%', paddingRight: '10%', marginTop: mobile ? 30 : '10vh', }}>
+		<div style={{ width: '100%', paddingLeft: '10%', paddingRight: '10%', marginTop: mobile ? 50 : '10vh', }}>
 			<Title>Our Service Packages</Title>
 			{mobile ? <MobilePackages packages={PackageElements} icons={[<FormatPainterOutlined />, <CodeOutlined />, <PartitionOutlined />]} service={stateObj ? stateObj.service : 1} /> : <Packages service={stateObj ? stateObj.service : 1} packages={PackageElements} />}
 			<div className="section" />

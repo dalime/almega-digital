@@ -21,7 +21,7 @@ export default function Checks(props: Props): JSX.Element {
 	return (
 		<div>
 			<Email />
-			<div style={{ display: 'flex', flex: 1, flexDirection: mobile ? 'column' : 'row', justifyContent: 'space-evenly', alignItems: mobile ? 'flex-start' : 'center', marginTop: 10, }}>
+			<div style={{ display: 'flex', flex: 1, flexDirection: mobile ? 'column' : 'row', justifyContent: 'space-evenly', alignItems: mobile ? 'flex-start' : 'center', marginTop: 10, marginLeft: mobile ? '30%' : 0, }}>
 				{renderCheckPoint('Quality')}
 				{renderCheckPoint('Timeliness')}
 				{renderCheckPoint('Communication')}

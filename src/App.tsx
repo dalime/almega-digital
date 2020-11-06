@@ -17,7 +17,6 @@ function App(): JSX.Element {
 	return (
 		<Router>
 			<Layout>
-				{mobile && <Affix offsetTop={0}><Mobile /></Affix>}
 				<Layout className="layout">
 					{!mobile && <Desktop />}
 					<Content style={{ minHeight: '90vh', width: '100vw', textAlign: 'center', marginTop: mobile ? 0 : '10vh', }}>
@@ -37,6 +36,7 @@ function App(): JSX.Element {
 						<PageFooter mobile={mobile} />
 					</Footer>
 				</Layout>
+				{mobile && <Affix offsetTop={0}><Mobile /></Affix>}
 			</Layout>
 		</Router>
 	)

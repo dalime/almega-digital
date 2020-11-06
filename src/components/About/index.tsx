@@ -22,7 +22,7 @@ export default function About(props: Props): JSX.Element {
 	const renderSection = (section: JSX.Element, first?: boolean): JSX.Element => {
 		return (
 			<>
-				<div className={first ? "" : "section"} style={first ? { marginTop: 30, } : {}} />
+				<div className={first ? "" : "section"} style={first ? { marginTop: 50, } : {}} />
 				{section}
 			</>
 		)
