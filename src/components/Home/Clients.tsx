@@ -21,7 +21,7 @@ export default function Clients(props: Props): JSX.Element {
 					/>
 				}
 				onClick={() => window.open(url, '_blank')}
-				style={{ cursor: 'pointer', marginTop: mobile ? 20 : 0, }}
+				style={{ cursor: 'pointer', marginTop: mobile ? 40 : 0, }}
 			/>
 		) : <></>
 	}

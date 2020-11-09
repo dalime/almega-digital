@@ -9,7 +9,7 @@ export default function Reviews(props: Props): JSX.Element {
 	const { mobile, } = props
 
 	const contentStyle: CSSProperties = {
-		height: mobile ? 400 : 200,
+		height: mobile ? 400 : 300,
 		color: '#fff',
 		textAlign: 'center',
 		alignItems: 'center',
@@ -19,13 +19,19 @@ export default function Reviews(props: Props): JSX.Element {
 		width: '100%',
 		paddingLeft: '10%',
 		paddingRight: '10%',
+		fontStyle: 'italic',
+		whiteSpace: 'pre-line',
 	}
 
-	const renderReview = (review: string): JSX.Element => {
+	const renderReview = (review: string, author: string): JSX.Element => {
 		return review.length ? (
 			<div style={{ display: 'flex', }}>
 				{/* <Title style={contentStyle}>{review}</Title> */}
-				<Text style={contentStyle}>{`"${review}"`}</Text>
+				<Text style={contentStyle}>{`
+					"${review}"
+					
+					- ${author}
+				`}</Text>
 			</div>
 		) : <></>
 	}
@@ -33,11 +39,11 @@ export default function Reviews(props: Props): JSX.Element {
 	return (
 		<div style={{ width: '100%', }}>
 			<Carousel>
-				{renderReview(process.env.REACT_APP_REVIEW_1 || '')}
-				{renderReview(process.env.REACT_APP_REVIEW_2 || '')}
-				{renderReview(process.env.REACT_APP_REVIEW_3 || '')}
-				{renderReview(process.env.REACT_APP_REVIEW_4 || '')}
-				{renderReview(process.env.REACT_APP_REVIEW_5 || '')}
+				{renderReview(process.env.REACT_APP_REVIEW_1 || '', process.env.REACT_APP_REVIEW_1_AUTHOR || 'Anonymous')}
+				{renderReview(process.env.REACT_APP_REVIEW_2 || '', process.env.REACT_APP_REVIEW_2_AUTHOR || 'Anonymous')}
+				{renderReview(process.env.REACT_APP_REVIEW_3 || '', process.env.REACT_APP_REVIEW_3_AUTHOR || 'Anonymous')}
+				{renderReview(process.env.REACT_APP_REVIEW_4 || '', process.env.REACT_APP_REVIEW_4_AUTHOR || 'Anonymous')}
+				{renderReview(process.env.REACT_APP_REVIEW_5 || '', process.env.REACT_APP_REVIEW_5_AUTHOR || 'Anonymous')}
 			</Carousel>
 		</div>
 	)
