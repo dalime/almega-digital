@@ -33,7 +33,7 @@ export default function Checks(props: Props): JSX.Element {
 		<div>
 			<Email />
 			<div style={{ display: 'flex', flex: 1, flexDirection: mobile ? 'column' : 'row', justifyContent: 'space-evenly', alignItems: mobile ? 'flex-start' : 'center', marginTop: 10, marginLeft: mobile ? '30%' : 0, }}>
-				{!hero && renderChecks()}
+				{mobile && hero ? <></> : renderChecks()}
 			</div>
 		</div>
 	)
