@@ -20,8 +20,8 @@ export default function Values(): JSX.Element {
 	return (
 		<div style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', }}>
 			<Title level={2}>Our Values</Title>
-			{renderValue(<FieldTimeOutlined style={{ fontSize: 60, color: '#1158bf', }} />, process.env.REACT_APP_VALUE_1 || '', process.env.REACT_APP_VALUE_1_TEXT || '', true)}
-			{renderValue(<CheckCircleOutlined style={{ fontSize: 60, color: '#1158bf', }} />, process.env.REACT_APP_VALUE_2 || '', process.env.REACT_APP_VALUE_2_TEXT || '')}
+			{renderValue(<CheckCircleOutlined style={{ fontSize: 60, color: '#1158bf', }} />, process.env.REACT_APP_VALUE_1 || '', process.env.REACT_APP_VALUE_1_TEXT || '', true)}
+			{renderValue(<FieldTimeOutlined style={{ fontSize: 60, color: '#1158bf', }} />, process.env.REACT_APP_VALUE_2 || '', process.env.REACT_APP_VALUE_2_TEXT || '')}
 			{renderValue(<PhoneOutlined style={{ fontSize: 60, color: '#1158bf', }} />, process.env.REACT_APP_VALUE_3 || '', process.env.REACT_APP_VALUE_3_TEXT || '')}
 		</div>
 	)

@@ -9,15 +9,15 @@ const { Step, } = Steps
 const steps = [
 	{
 		title: 'Strategy Call',
-		content: 'We will have a strategy call to discuss requirements and scope.',
+		content: 'We will have a strategy call to discuss requirements and scope',
 	},
 	{
 		title: 'Delivery',
-		content: 'Almega Digital will deliver designs and/or software deliverables as agreed upon in the Strategy Call.',
+		content: 'Almega Digital will deliver designs and/or software deliverables as agreed upon in the Strategy Call',
 	},
 	{
 		title: 'Feedback',
-		content: 'Any feedback you have for deliverables will be discussed and applied in feedback rounds.',
+		content: 'Any feedback you have for deliverables will be discussed and applied in feedback rounds',
 	},
 ]
 
