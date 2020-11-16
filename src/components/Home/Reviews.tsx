@@ -9,11 +9,11 @@ export default function Reviews(props: Props): JSX.Element {
 	const { mobile, } = props
 
 	const contentStyle: CSSProperties = {
-		height: mobile ? 400 : 300,
-		color: '#fff',
+		height: mobile ? 700 : 500,
+		color: '#000000',
 		textAlign: 'center',
 		alignItems: 'center',
-		background: '#364d79',
+		background: '#FFFFFF',
 		display: 'flex',
 		flexWrap: 'wrap',
 		width: '100%',
@@ -21,6 +21,7 @@ export default function Reviews(props: Props): JSX.Element {
 		paddingRight: '10%',
 		fontStyle: 'italic',
 		whiteSpace: 'pre-line',
+		fontSize: 20,
 	}
 
 	const renderReview = (review: string, author: string): JSX.Element => {
