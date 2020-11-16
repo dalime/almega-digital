@@ -1,6 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom'
 import { Layout, Affix, } from 'antd'
+import { useMediaQuery } from 'react-responsive'
+
 import Desktop from './components/Navigation/Desktop'
 import Mobile from './components/Navigation/Mobile'
 import Home from './components/Home'
@@ -12,7 +14,7 @@ import './App.less'
 const { Content, Footer, } = Layout
 
 function App(): JSX.Element {
-	const mobile = window.innerWidth <= 760
+	const mobile = useMediaQuery({ query: '(max-width: 760px)', })
 
 	return (
 		<Router>
