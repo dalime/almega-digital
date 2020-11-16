@@ -2,8 +2,6 @@ import React from 'react'
 import { Typography, Image, Button, } from 'antd'
 import { InfoCircleOutlined, } from '@ant-design/icons'
 
-import Blank from '../../images/blank.png'
-
 const { Title, Paragraph, } = Typography
 
 interface Props {
@@ -31,12 +29,6 @@ export default function Package(props: Props): JSX.Element {
 					src={imgSrc}
 					alt={imgAlt}
 					width={mobile ? 200 : 400}
-					placeholder={
-						<Image
-							src={Blank}
-							width={150}
-						/>
-					}
 					style={{ minWidth: 200, height: mobile ? 200 : 'auto', }}
 				/>
 				<div style={mobile ? { marginTop: 20, } : {}}>

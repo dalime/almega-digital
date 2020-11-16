@@ -4,7 +4,6 @@ import { Image, } from 'antd'
 import Step1 from '../../images/call.jpg'
 import Step2 from '../../images/delivery.jpg'
 import Step3 from '../../images/feedback.jpg'
-import Blank from '../../images/blank.png'
 
 interface Props {
 	step: number
@@ -15,18 +14,7 @@ export default function ServiceImage(props: Props): JSX.Element {
 
 	const renderImage = (src: string, alt: string): JSX.Element => {
 		return (
-			<Image
-				src={src}
-				alt={alt}
-				placeholder={
-					< Image
-						src={Blank}
-						width={300}
-					/>
-				}
-				width={300}
-				className="steps-image"
-			/>
+			<Image src={src} alt={alt} width={300} className="steps-image" />
 		)
 	}
 

@@ -2,7 +2,6 @@ import React from 'react'
 import { Typography, Image, } from 'antd'
 
 import { Props, } from '../../types'
-import Blank from '../../images/blank.png'
 
 const { Title } = Typography
 
@@ -12,14 +11,9 @@ export default function Clients(props: Props): JSX.Element {
 	const renderClient = (imgSrc: string | undefined, url: string | undefined): JSX.Element => {
 		return imgSrc && imgSrc.length && url && url.length ? (
 			<Image
-				width={150}
 				src={imgSrc}
-				placeholder={
-					<Image
-						src={Blank}
-						width={150}
-					/>
-				}
+				alt={`Logo of Almega Digital's client`}
+				width={150}
 				onClick={() => window.open(url, '_blank')}
 				style={{ cursor: 'pointer', marginTop: mobile ? 40 : 0, }}
 			/>
