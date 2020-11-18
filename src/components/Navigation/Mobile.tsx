@@ -18,7 +18,7 @@ export default function Mobile(): JSX.Element {
 			collapsedWidth="0"
 			collapsed={isCollapsed}
 			onClick={() => toggleCollapsed()}
-			theme="dark"
+			theme="light"
 			reverseArrow
 		>
 			<Menu mobile={true} closeMobileMenu={toggleCollapsed} />
