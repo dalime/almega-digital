@@ -4,13 +4,23 @@ import { FieldTimeOutlined, CheckCircleOutlined, PhoneOutlined, } from '@ant-des
 
 const { Title, Text, } = Typography
 
-export default function Values(): JSX.Element {
+interface Props {
+	mobile?: boolean
+}
+
+export default function Values(props: Props): JSX.Element {
+	const { mobile, } = props
+
+	const spacer: JSX.Element = <div style={{ width: 20, }} />
+
 	const renderValue = (icon: JSX.Element, title: string, text: string, first?: boolean): JSX.Element => {
+		const titleElement: JSX.Element = <Title level={3} style={{ textAlign: 'left', }}>{title}</Title>
+
 		return title.length && text.length ? (
 			<div style={{ width: '100%', display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: first ? '5vh' : '10vh', }}>
-				{icon}
+				{mobile ? <></> : icon}
 				<div style={{ textAlign: 'left', paddingLeft: 20, }}>
-					<Title level={3}>{title}</Title>
+					{mobile ? <div style={{ display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', marginBottom: 20, }}>{icon}{spacer}{titleElement}</div> : titleElement}
 					<Text>{text}</Text>
 				</div>
 			</div>

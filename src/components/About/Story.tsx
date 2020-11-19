@@ -17,14 +17,13 @@ const styles: CSSProperties = {
 export default function Story(props: Props): JSX.Element {
 	const { mobile, } = props
 
-	const AlmegaLogo: JSX.Element = <Image width={mobile ? 100 : 200} src={Logo} alt={`Almega Digital's logo`} style={{ minWidth: 50, }} />
+	const AlmegaLogo: JSX.Element = <Image width={100} src={Logo} alt={`Almega Digital's logo`} style={{ minWidth: 50, marginBottom: 20, }} />
 	const AlmegaTitle: JSX.Element = <Title level={2}>Our Story</Title>
 
 	return (
 		<>
-			{mobile ? <div style={styles}>{AlmegaLogo}{AlmegaTitle}</div> : AlmegaTitle}
+			<div style={styles}>{AlmegaLogo}{AlmegaTitle}</div>
 			<div style={{ ...styles, marginTop: mobile ? 20 : 0, }}>
-				{mobile ? <></> : AlmegaLogo}
 				<div />
 				<Text style={{ textAlign: 'left', paddingLeft: 20, }}>{process.env.REACT_APP_STORY || ''}</Text>
 			</div>

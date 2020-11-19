@@ -32,7 +32,7 @@ export default function About(props: Props): JSX.Element {
 		<div style={{ paddingLeft: '10vw', paddingRight: '10vw', }}>
 			{renderSection(<Hero />, true)}
 			{renderSection(<Story mobile={mobile} />)}
-			{renderSection(<Values />)}
+			{renderSection(<Values mobile={mobile} />)}
 			{/* {renderSection(<Team />)} */}
 			{renderSection(<Button type="primary" shape="round" icon={<InboxOutlined />} size={'large'} onClick={() => history.push('service')}>
 				Our Service
