@@ -16,7 +16,7 @@ export default function Checks(props: Props): JSX.Element {
 
 	const renderCheckPoint = (text: string): JSX.Element => {
 		const Set: JSX.Element = <><CheckSquareOutlined /><Text style={{ marginLeft: 5, }}>{text}</Text></>
-		return mobile ? <div>{Set}</div> : Set
+		return <div>{Set}</div>
 	}
 
 	const renderChecks = (): JSX.Element => {

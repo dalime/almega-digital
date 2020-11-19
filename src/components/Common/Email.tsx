@@ -1,7 +1,7 @@
 import React, { useState, } from 'react'
 import { Input, Spin, message, } from 'antd'
 
-import { sendEmail, } from '../../actions'
+import { joinMailList, } from '../../actions'
 
 const { Search } = Input
 
@@ -18,18 +18,18 @@ export default function Email(): JSX.Element {
 		<>
 			<Search
 				placeholder="Your email"
-				enterButton="Get a quote"
+				enterButton="Join our mailing list"
 				size="large"
 				value={email}
 				onChange={(event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
-				onSearch={(value: string) => {
+				onSearch={(emailAddress: string) => {
 					setLoading(true)
-					sendEmail(value).then(() => {
+					joinMailList(emailAddress).then(() => {
 						finishLoading()
-						message.success('You will be contacted shortly.')
+						message.success('You have been added to our mailing list.')
 					}).catch(() => {
 						finishLoading()
-						message.error('Sorry, your email cannot be shared at this time.')
+						message.error('Sorry, we cannot add you to our mailing list at this time.')
 					})
 				}}
 				style={{ paddingTop: 10, }}
