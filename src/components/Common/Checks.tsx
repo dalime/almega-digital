@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function Checks(props: Props): JSX.Element {
-	const { mobile, hero, } = props
+	const { mobile, } = props
 
 	const renderCheckPoint = (text: string): JSX.Element => {
 		const Set: JSX.Element = <><CheckSquareOutlined /><Text style={{ marginLeft: 5, }}>{text}</Text></>
@@ -33,7 +33,7 @@ export default function Checks(props: Props): JSX.Element {
 		<div>
 			<Email />
 			<div style={{ display: 'flex', flex: 1, flexDirection: mobile ? 'column' : 'row', justifyContent: 'space-evenly', alignItems: mobile ? 'flex-start' : 'center', marginTop: 10, marginLeft: mobile ? '30%' : 0, }}>
-				{mobile && hero ? <></> : renderChecks()}
+				{renderChecks()}
 			</div>
 		</div>
 	)

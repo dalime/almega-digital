@@ -9,7 +9,6 @@ export default function Reviews(props: Props): JSX.Element {
 	const { mobile, } = props
 
 	const contentStyle: CSSProperties = {
-		height: mobile ? 700 : 500,
 		color: '#000000',
 		textAlign: 'center',
 		alignItems: 'center',
@@ -24,15 +23,15 @@ export default function Reviews(props: Props): JSX.Element {
 		fontSize: 20,
 	}
 
-	const renderReview = (review: string, author: string): JSX.Element => {
+	const renderReview = (review: string, logo: string, author: string): JSX.Element => {
 		return review.length ? (
-			<div style={{ display: 'flex', }}>
-				{/* <Title style={contentStyle}>{review}</Title> */}
-				<Text style={contentStyle}>{`
-					"${review}"
-					
-					- ${author}
+			<div style={{ height: mobile ? 700 : 500, display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
+				<div style={contentStyle}>
+					<Text style={contentStyle}>{`
+					"${review}"					
 				`}</Text>
+					<img src={logo} alt={`${author}'s logo`} width={100} style={{ width: 100, height: 'auto', marginTop: 20, marginLeft: mobile ? '50%' : '70%', }} />
+				</div>
 			</div>
 		) : <></>
 	}
@@ -40,11 +39,10 @@ export default function Reviews(props: Props): JSX.Element {
 	return (
 		<div style={{ width: '100%', }}>
 			<Carousel>
-				{renderReview(process.env.REACT_APP_REVIEW_1 || '', process.env.REACT_APP_REVIEW_1_AUTHOR || 'Anonymous')}
-				{renderReview(process.env.REACT_APP_REVIEW_2 || '', process.env.REACT_APP_REVIEW_2_AUTHOR || 'Anonymous')}
-				{renderReview(process.env.REACT_APP_REVIEW_3 || '', process.env.REACT_APP_REVIEW_3_AUTHOR || 'Anonymous')}
-				{renderReview(process.env.REACT_APP_REVIEW_4 || '', process.env.REACT_APP_REVIEW_4_AUTHOR || 'Anonymous')}
-				{renderReview(process.env.REACT_APP_REVIEW_5 || '', process.env.REACT_APP_REVIEW_5_AUTHOR || 'Anonymous')}
+				{renderReview(process.env.REACT_APP_REVIEW_1 || '', process.env.REACT_APP_REVIEW_1_LOGO || '', process.env.REACT_APP_REVIEW_1_AUTHOR || 'Anonymous')}
+				{renderReview(process.env.REACT_APP_REVIEW_2 || '', process.env.REACT_APP_REVIEW_2_LOGO || '', process.env.REACT_APP_REVIEW_2_AUTHOR || 'Anonymous')}
+				{renderReview(process.env.REACT_APP_REVIEW_3 || '', process.env.REACT_APP_REVIEW_3_LOGO || '', process.env.REACT_APP_REVIEW_3_AUTHOR || 'Anonymous')}
+				{renderReview(process.env.REACT_APP_REVIEW_4 || '', process.env.REACT_APP_REVIEW_4_LOGO || '', process.env.REACT_APP_REVIEW_4_AUTHOR || 'Anonymous')}
 			</Carousel>
 		</div>
 	)
