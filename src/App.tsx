@@ -6,7 +6,7 @@ import { useMediaQuery } from 'react-responsive'
 import Desktop from './components/Navigation/Desktop'
 import Mobile from './components/Navigation/Mobile'
 import Home from './components/Home'
-import Service from './components/Service'
+import Services from './components/Services'
 import About from './components/About'
 import PageFooter from './components/Footer'
 import './App.less'
@@ -26,8 +26,8 @@ function App(): JSX.Element {
 							<Route path='/about'>
 								<About mobile={mobile} />
 							</Route>
-							<Route path='/service'>
-								<Service mobile={mobile} />
+							<Route path='/services'>
+								<Services mobile={mobile} />
 							</Route>
 							<Route path='/'>
 								<Home mobile={mobile} />

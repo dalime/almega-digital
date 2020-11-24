@@ -28,7 +28,7 @@ export default function PackageCard(props: Props): JSX.Element {
 				hoverable
 				style={{ width: 240 }}
 				cover={<img alt={imgAlt} src={imgSrc} />}
-				onClick={() => history.push({ pathname: 'service', state: { service, } })}
+				onClick={() => history.push({ pathname: 'services', state: { service, } })}
 			>
 				<Meta title={metaTitle} description={(
 					<div>

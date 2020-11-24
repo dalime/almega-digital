@@ -34,8 +34,8 @@ export default function About(props: Props): JSX.Element {
 			{renderSection(<Story mobile={mobile} />)}
 			{renderSection(<Values mobile={mobile} />)}
 			{/* {renderSection(<Team />)} */}
-			{renderSection(<Button type="primary" shape="round" icon={<InboxOutlined />} size={'large'} onClick={() => history.push('service')}>
-				Our Service
+			{renderSection(<Button type="primary" shape="round" icon={<InboxOutlined />} size={'large'} onClick={() => history.push('services')}>
+				Our Services
       </Button>)}
 			{renderSection(<Contact mobile={mobile} />)}
 		</div>

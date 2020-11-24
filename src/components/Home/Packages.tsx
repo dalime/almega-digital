@@ -33,7 +33,7 @@ export default function Packages(props: Props): JSX.Element {
 				</div>
 			)}
 			<div className="section" />
-			<Button type="primary" shape="round" icon={<FolderOpenFilled />} size={'large'} onClick={() => history.push('service')}>
+			<Button type="primary" shape="round" icon={<FolderOpenFilled />} size={'large'} onClick={() => history.push('services')}>
 				Find Out More
       </Button>
 		</>
