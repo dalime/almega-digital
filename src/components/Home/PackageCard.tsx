@@ -23,7 +23,7 @@ export default function PackageCard(props: Props): JSX.Element {
 	const history = useHistory()
 
 	return (
-		<Col span={12}>
+		<Col span={8}>
 			<Card
 				hoverable
 				style={{ width: 240 }}

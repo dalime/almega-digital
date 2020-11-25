@@ -1,6 +1,6 @@
 import React, { useState, ReactText, CSSProperties, } from 'react'
 import { Form, Input, Button, Typography, Dropdown, Menu, message as AntMessage, } from 'antd'
-import { DownOutlined, FormatPainterOutlined, CodeOutlined, } from '@ant-design/icons'
+import { DownOutlined, FormatPainterOutlined, LaptopOutlined, CodeOutlined, } from '@ant-design/icons'
 
 import { contactAlmega, } from '../../actions'
 
@@ -50,7 +50,7 @@ interface Props {
 export default function Contact(props: Props): JSX.Element {
 	const { mobile, paddingLeft, paddingRight, } = props
 
-	const [packageChoice, setPackageChoice] = useState<"Web & App Design" | "Website & App Development" | "Packages">("Packages")
+	const [packageChoice, setPackageChoice] = useState<"Web & App Design" | "Website Development" | "App Development" | "Packages">("Packages")
 
 	const onFinish = (values: { user: { email: string, message: string, name: string, website: string, } }) => {
 		const { user, } = values
@@ -64,7 +64,7 @@ export default function Contact(props: Props): JSX.Element {
 	}
 
 	const handlePackagePick = (info: MenuClickEvent): void => {
-		setPackageChoice(info.key.toString() as "Web & App Design" | "Website & App Development" | "Packages")
+		setPackageChoice(info.key.toString() as "Web & App Design" | "Website Development" | "App Development" | "Packages")
 	}
 
 	const menu = (
@@ -72,8 +72,11 @@ export default function Contact(props: Props): JSX.Element {
 			<Menu.Item key="Web & App Design" icon={<FormatPainterOutlined />}>
 				Web & App Design
     	</Menu.Item>
-			<Menu.Item key="Website & App Development" icon={<CodeOutlined />}>
-				Website & App Development
+			<Menu.Item key="Website Development" icon={<LaptopOutlined />}>
+				Website Development
+    	</Menu.Item>
+			<Menu.Item key="App Development" icon={<CodeOutlined />}>
+				App Development
     	</Menu.Item>
 		</Menu>
 	)
@@ -101,7 +104,7 @@ export default function Contact(props: Props): JSX.Element {
 					<Form.Item name={['user', 'package']} label="Package">
 						<Dropdown overlay={menu} className="contact-package-button">
 							<Button>
-								{packageChoice === "Web & App Design" ? <FormatPainterOutlined /> : packageChoice === "Website & App Development" ? <CodeOutlined /> : <></>} {packageChoice} {packageChoice === "Packages" && <DownOutlined />}
+								{packageChoice === "Web & App Design" ? <FormatPainterOutlined /> : packageChoice === "Website Development" ? <LaptopOutlined /> : packageChoice === "App Development" ? <CodeOutlined /> : <></>} {packageChoice} {packageChoice === "Packages" && <DownOutlined />}
 							</Button>
 						</Dropdown>
 					</Form.Item>

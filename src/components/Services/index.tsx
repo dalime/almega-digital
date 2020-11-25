@@ -10,7 +10,8 @@ import MobilePackages from '../Home/MobilePackages'
 import Process from './Process'
 import Contact from '../Common/Contact'
 import DesignImg from '../../images/service-design.jpg'
-import DevelopImg from '../../images/service-development.jpg'
+import WebsiteImg from '../../images/service-development.jpg'
+import DevelopImg from '../../images/app-development.jpg'
 
 const { Title, } = Typography
 
@@ -40,7 +41,8 @@ function Service(props: ServiceProps): JSX.Element {
 
 	const PackageElements: JSX.Element[] = [
 		<Package packageNumber={1} heading={process.env.REACT_APP_PACKAGE_1_HEADING || ''} metaTitle={'Website & App Design'} imgSrc={DesignImg} imgAlt={process.env.REACT_APP_PACKAGE_1_IMG_ALT || ''} description={process.env.REACT_APP_PACKAGE_1_DESC || ''} startingPrice={process.env.REACT_APP_SERVICE_PACKAGE_1_PRICE || ''} pointOne={process.env.REACT_APP_SERVICE_PACKAGE_1_POINT_1 || ''} pointTwo={process.env.REACT_APP_SERVICE_PACKAGE_1_POINT_2 || ''} pointThree={process.env.REACT_APP_SERVICE_PACKAGE_1_POINT_3 || ''} scrollToContact={scrollToContact} mobile={mobile} />,
-		<Package packageNumber={2} heading={process.env.REACT_APP_PACKAGE_2_HEADING || ''} metaTitle={'Web & App Development'} imgSrc={DevelopImg} imgAlt={process.env.REACT_APP_PACKAGE_2_IMG_ALT || ''} description={process.env.REACT_APP_PACKAGE_2_DESC || ''} startingPrice={process.env.REACT_APP_SERVICE_PACKAGE_2_PRICE || ''} pointOne={process.env.REACT_APP_SERVICE_PACKAGE_2_POINT_1 || ''} pointTwo={process.env.REACT_APP_SERVICE_PACKAGE_2_POINT_2 || ''} pointThree={process.env.REACT_APP_SERVICE_PACKAGE_2_POINT_3 || ''} scrollToContact={scrollToContact} mobile={mobile} />,
+		<Package packageNumber={2} heading={process.env.REACT_APP_PACKAGE_2_HEADING || ''} metaTitle={'Website Development'} imgSrc={WebsiteImg} imgAlt={process.env.REACT_APP_PACKAGE_2_IMG_ALT || ''} description={process.env.REACT_APP_PACKAGE_2_DESC || ''} startingPrice={process.env.REACT_APP_SERVICE_PACKAGE_2_PRICE || ''} pointOne={process.env.REACT_APP_SERVICE_PACKAGE_2_POINT_1 || ''} pointTwo={process.env.REACT_APP_SERVICE_PACKAGE_2_POINT_2 || ''} pointThree={process.env.REACT_APP_SERVICE_PACKAGE_2_POINT_3 || ''} scrollToContact={scrollToContact} mobile={mobile} />,
+		<Package packageNumber={3} heading={process.env.REACT_APP_PACKAGE_3_HEADING || ''} metaTitle={'App Development'} imgSrc={DevelopImg} imgAlt={process.env.REACT_APP_PACKAGE_3_IMG_ALT || ''} description={process.env.REACT_APP_PACKAGE_3_DESC || ''} startingPrice={process.env.REACT_APP_SERVICE_PACKAGE_3_PRICE || ''} pointOne={process.env.REACT_APP_SERVICE_PACKAGE_3_POINT_1 || ''} pointTwo={process.env.REACT_APP_SERVICE_PACKAGE_3_POINT_2 || ''} pointThree={process.env.REACT_APP_SERVICE_PACKAGE_3_POINT_3 || ''} scrollToContact={scrollToContact} mobile={mobile} />
 	]
 
 	return (

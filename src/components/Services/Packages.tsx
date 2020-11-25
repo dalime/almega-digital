@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tabs, } from 'antd'
-import { FormatPainterOutlined, CodeOutlined, } from '@ant-design/icons'
+import { FormatPainterOutlined, LaptopOutlined, CodeOutlined, } from '@ant-design/icons'
 
 const { TabPane } = Tabs
 
@@ -30,10 +30,11 @@ export default function Packages(props: Props): JSX.Element {
 
 	return (
 		<Tabs defaultActiveKey={service.toString() || '2'} centered>
-			{packages.length === 2 &&
+			{packages.length === 3 &&
 				<>
 					{renderTab('1', 'Web & App Design', < FormatPainterOutlined />, packages[0])}
-					{renderTab('2', 'Website & App Development', <CodeOutlined />, packages[1])}
+					{renderTab('2', 'Website Development', <LaptopOutlined />, packages[1])}
+					{renderTab('3', 'App Development', <CodeOutlined />, packages[2])}
 				</>
 			}
 		</Tabs>
