@@ -1,8 +1,6 @@
 import React, { useState, } from 'react'
 import { Typography, Steps, } from 'antd'
 
-import ServiceImage from './ServiceImage'
-
 const { Title, } = Typography
 const { Step, } = Steps
 
@@ -32,7 +30,6 @@ function Process(): JSX.Element {
 					return <Step key={index} title={step.title} description={step.content} />
 				})}
 			</Steps>
-			<ServiceImage step={current} />
 		</>
 	)
 }

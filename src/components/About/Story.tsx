@@ -3,6 +3,7 @@ import { Image, Typography, } from 'antd'
 
 import { Props, } from '../../types'
 import Logo from '../../images/logo512.png'
+import BlankImg from '../../images/blank.png'
 
 const { Text, Title, } = Typography
 
@@ -17,7 +18,7 @@ const styles: CSSProperties = {
 export default function Story(props: Props): JSX.Element {
 	const { mobile, } = props
 
-	const AlmegaLogo: JSX.Element = <Image width={100} src={Logo} alt={`Almega Digital's logo`} style={{ minWidth: 50, marginBottom: 20, }} />
+	const AlmegaLogo: JSX.Element = <Image width={100} src={Logo} alt={`Almega Digital's logo`} style={{ minWidth: 50, marginBottom: 20, }} fallback={BlankImg} />
 	const AlmegaTitle: JSX.Element = <Title level={2}>Our Story</Title>
 
 	return (

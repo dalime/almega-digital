@@ -1,6 +1,8 @@
 import React from 'react'
 import { Typography, Image, } from 'antd'
 
+import BlankImg from '../../images/blank.png'
+
 const { Title, Text, } = Typography
 
 export default function Team(): JSX.Element {
@@ -8,7 +10,7 @@ export default function Team(): JSX.Element {
 		return imgSrc.length && name.length && position.length && summary.length ? (
 			<>
 				<div style={{ width: '100%', display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: first ? '5vh' : '10vh', }}>
-					<Image src={imgSrc} alt={`Portrait of Almega Digital's team member ${name}`} width={150} className="team-member-image" />
+					<Image src={imgSrc} alt={`Portrait of Almega Digital's team member ${name}`} width={150} className="team-member-image" fallback={BlankImg} />
 					<div style={{ textAlign: 'left', paddingLeft: 20, }}>
 						<Title level={3}>{name}</Title>
 						<Title level={5}>{position}</Title>

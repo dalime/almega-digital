@@ -7,10 +7,11 @@ const { TabPane } = Tabs
 interface Props {
 	service: number
 	packages: JSX.Element[]
+	setDefaultLoad?(): void
 }
 
 export default function Packages(props: Props): JSX.Element {
-	const { service, packages, } = props
+	const { service, packages, setDefaultLoad, } = props
 
 	const renderTab = (key: string, title: string, icon: JSX.Element, content: JSX.Element): JSX.Element => {
 		return (
@@ -29,7 +30,7 @@ export default function Packages(props: Props): JSX.Element {
 	}
 
 	return (
-		<Tabs defaultActiveKey={service.toString() || '2'} centered>
+		<Tabs defaultActiveKey={service.toString() || '2'} centered onTabClick={() => setDefaultLoad ? setDefaultLoad() : {}}>
 			{packages.length === 3 &&
 				<>
 					{renderTab('1', 'Web & App Design', < FormatPainterOutlined />, packages[0])}

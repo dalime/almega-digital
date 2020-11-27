@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, } from 'react'
+import React, { useEffect, useRef, useState, } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import { useHistory, withRouter, RouteComponentProps, } from 'react-router-dom'
 import { Button, Typography } from 'antd'
 import { TeamOutlined, FormatPainterOutlined, CodeOutlined, } from '@ant-design/icons'
@@ -25,11 +26,14 @@ function Service(props: ServiceProps): JSX.Element {
 	const { location, mobile, } = props
 	const { state, } = location
 
-	const stateObj: StateObject = state as StateObject
-
 	const history = useHistory()
 
 	const contactRef = useRef<HTMLDivElement | null>(null)
+
+	const stateObj: StateObject = state as StateObject
+	const [defaultLoad, setDefaultLoad] = useState<boolean>(true)
+
+	const packageMobile = useMediaQuery({ query: '(max-width: 1160px)', })
 
 	useEffect(() => {
 		window.scrollTo(0, 0)
@@ -40,9 +44,9 @@ function Service(props: ServiceProps): JSX.Element {
 	}
 
 	const PackageElements: JSX.Element[] = [
-		<Package packageNumber={1} heading={process.env.REACT_APP_PACKAGE_1_HEADING || ''} metaTitle={'Website & App Design'} imgSrc={DesignImg} imgAlt={process.env.REACT_APP_PACKAGE_1_IMG_ALT || ''} description={process.env.REACT_APP_PACKAGE_1_DESC || ''} startingPrice={process.env.REACT_APP_SERVICE_PACKAGE_1_PRICE || ''} pointOne={process.env.REACT_APP_SERVICE_PACKAGE_1_POINT_1 || ''} pointTwo={process.env.REACT_APP_SERVICE_PACKAGE_1_POINT_2 || ''} pointThree={process.env.REACT_APP_SERVICE_PACKAGE_1_POINT_3 || ''} scrollToContact={scrollToContact} mobile={mobile} />,
-		<Package packageNumber={2} heading={process.env.REACT_APP_PACKAGE_2_HEADING || ''} metaTitle={'Website Development'} imgSrc={WebsiteImg} imgAlt={process.env.REACT_APP_PACKAGE_2_IMG_ALT || ''} description={process.env.REACT_APP_PACKAGE_2_DESC || ''} startingPrice={process.env.REACT_APP_SERVICE_PACKAGE_2_PRICE || ''} pointOne={process.env.REACT_APP_SERVICE_PACKAGE_2_POINT_1 || ''} pointTwo={process.env.REACT_APP_SERVICE_PACKAGE_2_POINT_2 || ''} pointThree={process.env.REACT_APP_SERVICE_PACKAGE_2_POINT_3 || ''} scrollToContact={scrollToContact} mobile={mobile} />,
-		<Package packageNumber={3} heading={process.env.REACT_APP_PACKAGE_3_HEADING || ''} metaTitle={'App Development'} imgSrc={DevelopImg} imgAlt={process.env.REACT_APP_PACKAGE_3_IMG_ALT || ''} description={process.env.REACT_APP_PACKAGE_3_DESC || ''} startingPrice={process.env.REACT_APP_SERVICE_PACKAGE_3_PRICE || ''} pointOne={process.env.REACT_APP_SERVICE_PACKAGE_3_POINT_1 || ''} pointTwo={process.env.REACT_APP_SERVICE_PACKAGE_3_POINT_2 || ''} pointThree={process.env.REACT_APP_SERVICE_PACKAGE_3_POINT_3 || ''} scrollToContact={scrollToContact} mobile={mobile} />
+		<Package packageNumber={1} heading={process.env.REACT_APP_PACKAGE_1_HEADING || ''} metaTitle={'Website & App Design'} imgSrc={DesignImg} imgAlt={process.env.REACT_APP_PACKAGE_1_IMG_ALT || ''} description={process.env.REACT_APP_PACKAGE_1_DESC || ''} startingPrice={process.env.REACT_APP_SERVICE_PACKAGE_1_PRICE || ''} pointOne={process.env.REACT_APP_SERVICE_PACKAGE_1_POINT_1 || ''} pointTwo={process.env.REACT_APP_SERVICE_PACKAGE_1_POINT_2 || ''} pointThree={process.env.REACT_APP_SERVICE_PACKAGE_1_POINT_3 || ''} scrollToContact={scrollToContact} mobile={mobile} defaultLoad={defaultLoad} setDefaultLoad={() => setDefaultLoad(false)} packageMobile={packageMobile} />,
+		<Package packageNumber={2} heading={process.env.REACT_APP_PACKAGE_2_HEADING || ''} metaTitle={'Website Development'} imgSrc={WebsiteImg} imgAlt={process.env.REACT_APP_PACKAGE_2_IMG_ALT || ''} description={process.env.REACT_APP_PACKAGE_2_DESC || ''} startingPrice={process.env.REACT_APP_SERVICE_PACKAGE_2_PRICE || ''} pointOne={process.env.REACT_APP_SERVICE_PACKAGE_2_POINT_1 || ''} pointTwo={process.env.REACT_APP_SERVICE_PACKAGE_2_POINT_2 || ''} pointThree={process.env.REACT_APP_SERVICE_PACKAGE_2_POINT_3 || ''} scrollToContact={scrollToContact} mobile={mobile} defaultLoad={defaultLoad} setDefaultLoad={() => setDefaultLoad(false)} packageMobile={packageMobile} />,
+		<Package packageNumber={3} heading={process.env.REACT_APP_PACKAGE_3_HEADING || ''} metaTitle={'App Development'} imgSrc={DevelopImg} imgAlt={process.env.REACT_APP_PACKAGE_3_IMG_ALT || ''} description={process.env.REACT_APP_PACKAGE_3_DESC || ''} startingPrice={process.env.REACT_APP_SERVICE_PACKAGE_3_PRICE || ''} pointOne={process.env.REACT_APP_SERVICE_PACKAGE_3_POINT_1 || ''} pointTwo={process.env.REACT_APP_SERVICE_PACKAGE_3_POINT_2 || ''} pointThree={process.env.REACT_APP_SERVICE_PACKAGE_3_POINT_3 || ''} scrollToContact={scrollToContact} mobile={mobile} defaultLoad={defaultLoad} setDefaultLoad={() => setDefaultLoad(false)} packageMobile={packageMobile} />,
 	]
 
 	return (
@@ -51,7 +55,7 @@ function Service(props: ServiceProps): JSX.Element {
 			{mobile ? (
 				<MobilePackages packages={PackageElements} icons={[<FormatPainterOutlined />, <CodeOutlined />]} service={stateObj ? stateObj.service : 1} />
 			) : (
-					<Packages service={stateObj ? stateObj.service : 1} packages={PackageElements} />
+					<Packages service={stateObj ? stateObj.service : 1} packages={PackageElements} setDefaultLoad={() => setDefaultLoad(true)} />
 				)}
 			<div className="section" />
 			<Process />
