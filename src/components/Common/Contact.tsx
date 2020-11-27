@@ -1,5 +1,5 @@
 import React, { useState, ReactText, CSSProperties, } from 'react'
-import { Form, Input, Button, Typography, Dropdown, Menu, message as AntMessage, } from 'antd'
+import { Form, Input, Button, Typography, Dropdown, Menu, message as AntMessage, Spin, } from 'antd'
 import { DownOutlined, FormatPainterOutlined, LaptopOutlined, CodeOutlined, } from '@ant-design/icons'
 
 import { contactAlmega, } from '../../actions'
@@ -50,16 +50,21 @@ interface Props {
 export default function Contact(props: Props): JSX.Element {
 	const { mobile, paddingLeft, paddingRight, } = props
 
+	const [loading, setLoading] = useState<boolean>(false)
 	const [packageChoice, setPackageChoice] = useState<"Web & App Design" | "Website Development" | "App Development" | "Packages">("Packages")
 
 	const onFinish = (values: { user: { email: string, message: string, name: string, website: string, } }) => {
 		const { user, } = values
 		const { email, message, name, website, } = user
 
+		setLoading(true)
+
 		contactAlmega(name, email, message || '', packageChoice === "Packages" ? '' : packageChoice.toString(), website || '').then(() => {
 			AntMessage.success('You will be contacted shortly.')
+			setLoading(false)
 		}).catch(() => {
 			AntMessage.error('Sorry, we could not send your inquiry at this time.')
+			setLoading(false)
 		})
 	}
 
@@ -115,6 +120,7 @@ export default function Contact(props: Props): JSX.Element {
 						<Button type="primary" htmlType="submit">
 							Submit
 					</Button>
+						{loading && <Spin />}
 					</Form.Item>
 				</Form>
 			</div>

@@ -1,3 +1,31 @@
+import base64 from 'base-64'
+
+const mailchimpAutomation = (emailAddress: string): Promise<any> => {
+	return new Promise((resolve, reject) => {
+		if (process.env.REACT_APP_PROXY_SERVER_URL && process.env.REACT_APP_MAILCHIMP_SERVER_PREFIX && process.env.REACT_APP_MAILCHIMP_WORKFLOW_ID && process.env.REACT_APP_MAILCHIMP_WORKFLOW_EMAIL_ID) {
+			const requestBody: Object = {
+				"email_address": emailAddress,
+			}
+
+			fetch(`${process.env.REACT_APP_PROXY_SERVER_URL || ''}https://${process.env.REACT_APP_MAILCHIMP_SERVER_PREFIX || ''}.api.mailchimp.com/3.0/automations/${process.env.REACT_APP_MAILCHIMP_WORKFLOW_ID}/emails/${process.env.REACT_APP_MAILCHIMP_WORKFLOW_EMAIL_ID}/queue`, {
+				method: 'POST',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+					'Authorization': `Basic ${base64.encode('user:' + process.env.REACT_APP_MAILCHIMP_API_KEY || '')}`,
+				},
+				body: JSON.stringify(requestBody),
+			}).then(() => {
+				resolve()
+			}).catch((reason) => {
+				reject(reason)
+			})
+		} else {
+			reject()
+		}
+	})
+}
+
 const sendFeedback = (serviceID: string, templateId: string, variables: { from_name: string, from_email: string, from_website: string, message: string, servicePackage: string, }): Promise<any> => {
 	return new Promise((resolve, reject) => {
 		(window as any).emailjs.send(
@@ -5,6 +33,7 @@ const sendFeedback = (serviceID: string, templateId: string, variables: { from_n
 			variables
 		).then((res: any) => {
 			resolve(res)
+			mailchimpAutomation(variables.from_email)
 		}).catch((err: any) => {
 			reject(err)
 		})
