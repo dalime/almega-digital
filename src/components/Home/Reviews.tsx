@@ -43,6 +43,7 @@ export default function Reviews(props: Props): JSX.Element {
 				{renderReview(process.env.REACT_APP_REVIEW_2 || '', process.env.REACT_APP_REVIEW_2_LOGO || '', process.env.REACT_APP_REVIEW_2_AUTHOR || 'Anonymous')}
 				{renderReview(process.env.REACT_APP_REVIEW_3 || '', process.env.REACT_APP_REVIEW_3_LOGO || '', process.env.REACT_APP_REVIEW_3_AUTHOR || 'Anonymous')}
 				{renderReview(process.env.REACT_APP_REVIEW_4 || '', process.env.REACT_APP_REVIEW_4_LOGO || '', process.env.REACT_APP_REVIEW_4_AUTHOR || 'Anonymous')}
+				{renderReview(process.env.REACT_APP_REVIEW_5 || '', process.env.REACT_APP_REVIEW_5_LOGO || '', process.env.REACT_APP_REVIEW_5_AUTHOR || 'Anonymous')}
 			</Carousel>
 		</div>
 	)

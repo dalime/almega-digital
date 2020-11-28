@@ -38,7 +38,7 @@ export default function PackageCard(props: Props): JSX.Element {
 							<li>{metaTwo}</li>
 							<li>{metaThree}</li>
 						</ul>
-						<Title level={5}>Starting at ${startingPrice}</Title>
+						<Title level={5}>From ${startingPrice}</Title>
 					</div>
 				)} />
 			</Card>

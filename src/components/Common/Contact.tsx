@@ -53,6 +53,8 @@ export default function Contact(props: Props): JSX.Element {
 	const [loading, setLoading] = useState<boolean>(false)
 	const [packageChoice, setPackageChoice] = useState<"Web & App Design" | "Website Development" | "App Development" | "Packages">("Packages")
 
+	const randomReview = `REACT_APP_REVIEW_${Math.floor(Math.random() * (5 - 1) + 1)}`
+
 	const onFinish = (values: { user: { email: string, message: string, name: string, website: string, } }) => {
 		const { user, } = values
 		const { email, message, name, website, } = user
@@ -90,9 +92,9 @@ export default function Contact(props: Props): JSX.Element {
 		<div style={{ display: 'flex', flex: 1, flexDirection: mobile ? 'column-reverse' : 'row', justifyContent: 'space-evenly', paddingLeft: paddingLeft ? '10vw' : 'auto', paddingRight: paddingRight ? '10vw' : 'auto', }}>
 			<div style={{ width: mobile ? '100%' : '40%', marginTop: '10%', }}>
 				<Text style={contentStyle}>{`
-					"${process.env.REACT_APP_REVIEW_5 || ''}"					
+					"${process.env[`${randomReview}`] || ''}"					
 				`}</Text>
-				<img src={process.env.REACT_APP_REVIEW_5_LOGO || ''} alt={`${process.env.REACT_APP_REVIEW_5_AUTHOR || ''}'s logo`} width={100} style={{ width: 100, height: 'auto', }} />
+				<img src={process.env[`${randomReview}_LOGO`] || ''} alt={`${process.env[`${randomReview}_AUTHOR`] || ''}'s logo`} width={100} style={{ width: 100, height: 'auto', }} />
 			</div>
 			<div style={{ width: mobile ? '100%' : '60%', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }}>
 				<Title level={2}>Get a Free Quote</Title>
