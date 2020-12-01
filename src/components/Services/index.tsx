@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState, } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { useHistory, withRouter, RouteComponentProps, } from 'react-router-dom'
 import { Button, Typography } from 'antd'
-import { TeamOutlined, FormatPainterOutlined, CodeOutlined, } from '@ant-design/icons'
+import { TeamOutlined, } from '@ant-design/icons'
 
 import { Props } from '../../types'
 import Package from './Package'
 import Packages from './Packages'
-import MobilePackages from '../Home/MobilePackages'
+import MobilePackages from './MobilePackages'
 import Process from './Process'
 import Contact from '../Common/Contact'
 import DesignImg from '../../images/service-design.jpg'
@@ -34,6 +34,7 @@ function Service(props: ServiceProps): JSX.Element {
 	const [defaultLoad, setDefaultLoad] = useState<boolean>(true)
 
 	const packageMobile = useMediaQuery({ query: '(max-width: 1160px)', })
+	const mobilePackageLimit = useMediaQuery({ query: '(max-width: 600px)', })
 
 	useEffect(() => {
 		window.scrollTo(0, 0)
@@ -52,13 +53,13 @@ function Service(props: ServiceProps): JSX.Element {
 	return (
 		<div style={{ width: '100%', paddingLeft: '10%', paddingRight: '10%', marginTop: mobile ? 50 : '10vh', }}>
 			<Title>Our Service Packages</Title>
-			{mobile ? (
-				<MobilePackages packages={PackageElements} icons={[<FormatPainterOutlined />, <CodeOutlined />]} service={stateObj ? stateObj.service : 1} />
+			{mobilePackageLimit ? (
+				<MobilePackages service={stateObj ? stateObj.service : 1} packages={PackageElements} />
 			) : (
-					<Packages service={stateObj ? stateObj.service : 1} packages={PackageElements} setDefaultLoad={() => setDefaultLoad(true)} />
+					<Packages service={stateObj ? stateObj.service : 1} packages={PackageElements} setDefaultLoad={() => setDefaultLoad(true)} mobile={mobile} />
 				)}
 			<div className="section" />
-			<Process />
+			<Process mobile={mobile} />
 			<div className="section" />
 			<Button type="primary" shape="round" icon={<TeamOutlined />} size={'large'} onClick={() => history.push('about')}>
 				Who We Are

@@ -8,10 +8,11 @@ interface Props {
 	service: number
 	packages: JSX.Element[]
 	setDefaultLoad?(): void
+	mobile?: boolean
 }
 
 export default function Packages(props: Props): JSX.Element {
-	const { service, packages, setDefaultLoad, } = props
+	const { service, packages, setDefaultLoad, mobile, } = props
 
 	const renderTab = (key: string, title: string, icon: JSX.Element, content: JSX.Element): JSX.Element => {
 		return (
@@ -30,7 +31,7 @@ export default function Packages(props: Props): JSX.Element {
 	}
 
 	return (
-		<Tabs defaultActiveKey={service.toString() || '2'} centered onTabClick={() => setDefaultLoad ? setDefaultLoad() : {}}>
+		<Tabs defaultActiveKey={service.toString() || '2'} centered onTabClick={() => setDefaultLoad ? setDefaultLoad() : {}} tabPosition={mobile ? 'left' : 'top'}>
 			{packages.length === 3 &&
 				<>
 					{renderTab('1', 'Web & App Design', < FormatPainterOutlined />, packages[0])}

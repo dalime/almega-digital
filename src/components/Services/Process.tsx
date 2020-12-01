@@ -19,13 +19,19 @@ const steps = [
 	},
 ]
 
-function Process(): JSX.Element {
+interface Props {
+	mobile?: boolean
+}
+
+function Process(props: Props): JSX.Element {
+	const { mobile, } = props
+
 	const [current, setCurrent] = useState<number>(0)
 
 	return (
 		<>
 			<Title level={2}>Our Process</Title>
-			<Steps current={current} onChange={(newCurrent: number) => setCurrent(newCurrent)}>
+			<Steps current={current} onChange={(newCurrent: number) => setCurrent(newCurrent)} direction={mobile ? 'vertical' : 'horizontal'}>
 				{steps.map((step: { title: string, content: string, }, index: number) => {
 					return <Step key={index} title={step.title} description={step.content} />
 				})}
