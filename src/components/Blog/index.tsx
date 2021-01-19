@@ -26,6 +26,8 @@ export default function Blog(props: Props): JSX.Element {
 	})
 
 	useEffect(() => {
+		window.scrollTo(0, 0)
+
 		axios.get(mediumURL).then((info) => {
 			const image = info.data.feed.image
 			const link = info.data.feed.link
