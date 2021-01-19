@@ -8,6 +8,7 @@ import Mobile from './components/Navigation/Mobile'
 import Home from './components/Home'
 import Services from './components/Services'
 import About from './components/About'
+import Blog from './components/Blog'
 import PageFooter from './components/Footer'
 import './App.less'
 
@@ -28,6 +29,9 @@ function App(): JSX.Element {
 							</Route>
 							<Route path='/services'>
 								<Services mobile={mobile} />
+							</Route>
+							<Route path='/blog'>
+								<Blog mobile={mobile} />
 							</Route>
 							<Route path='/'>
 								<Home mobile={mobile} />

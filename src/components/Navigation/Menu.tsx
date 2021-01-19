@@ -25,8 +25,9 @@ export default function Desktop(props: Props): JSX.Element {
 				<Menu.Item key="1" onClick={() => handleClick('')}>Home</Menu.Item>
 				<Menu.Item key="2" onClick={() => handleClick('services')}>Services</Menu.Item>
 				<Menu.Item key="3" onClick={() => handleClick('about')}>About</Menu.Item>
+				<Menu.Item key="4" onClick={() => handleClick('blog')}>Blog</Menu.Item>
 				{!mobile && (
-					<Menu.Item key="4" onClick={() => { }} id="menu-email-box">
+					<Menu.Item key="5" onClick={() => { }} id="menu-email-box">
 						<Email />
 					</Menu.Item>
 				)}
