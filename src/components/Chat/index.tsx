@@ -128,9 +128,13 @@ export default function Chat(props: Props): JSX.Element {
   }
 
   const toStep7 = (): void => {
+    setLoading(true)
     contactAlmega(name, email, message, specificPackage || generalPackage || 'Package error', website.length ? website : 'No website').then(() => {
+      setLoading(false)
+      toast.success('Your inquiry was received', { autoClose: 3000, })
       setSubmitted(true)
     }).catch((error) => {
+      setLoading(false)
       toast.error(error, { autoClose: 3000, })
       setSubmitted(true)
     })
