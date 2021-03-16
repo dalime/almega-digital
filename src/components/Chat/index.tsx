@@ -36,7 +36,7 @@ export default function Chat(props: Props): JSX.Element {
   const [loading, setLoading] = useState<boolean>(false)
   const [submitted, setSubmitted] = useState<boolean>(false)
   const [step, setStep] = useState<number>(1)
-  const [chats, setChats] = useState<JSX.Element[]>([<ChatFromAlmega text={`Welcome to Almega Digital! \nClick on a service below`} />])
+  const [chats, setChats] = useState<JSX.Element[]>([<ChatFromAlmega key={Math.random() * 1000} text={`Welcome to Almega Digital! \nClick on a service below`} />])
   const [generalPackage, setGeneralPackage] = useState<GeneralPackage | null>(null)
   const [specificPackage, setSpecificPackage] = useState<string | null>(null)
   const [name, setName] = useState<string>('')
@@ -80,8 +80,8 @@ export default function Chat(props: Props): JSX.Element {
 
     let _chats: JSX.Element[] = [...chats]
     _chats.push(
-      <ChatFromProspect text={desc} />,
-      <ChatFromAlmega text={'Click on a specific service below'} />
+      <ChatFromProspect key={Math.random() * 1000} text={desc} />,
+      <ChatFromAlmega key={Math.random() * 1000} text={'Click on a specific service below'} />
     )
     toNextStep(_chats)
   }
@@ -91,8 +91,8 @@ export default function Chat(props: Props): JSX.Element {
     setSpecificPackage(pkg.name)
     let _chats: JSX.Element[] = [...chats]
     _chats.push(
-      <ChatFromProspect text={pkg.name} />,
-      <ChatFromAlmega text={'What is your name?'} />
+      <ChatFromProspect key={Math.random() * 1000} text={pkg.name} />,
+      <ChatFromAlmega key={Math.random() * 1000} text={'What is your name?'} />
     )
     toNextStep(_chats)
   }
@@ -101,8 +101,8 @@ export default function Chat(props: Props): JSX.Element {
     setStep(4)
     let _chats: JSX.Element[] = [...chats]
     _chats.push(
-      <ChatFromProspect text={name} />,
-      <ChatFromAlmega text={'What is your best email address?'} />
+      <ChatFromProspect key={Math.random() * 1000} text={name} />,
+      <ChatFromAlmega key={Math.random() * 1000} text={'What is your best email address?'} />
     )
     toNextStep(_chats)
   }
@@ -111,8 +111,8 @@ export default function Chat(props: Props): JSX.Element {
     setStep(5)
     let _chats: JSX.Element[] = [...chats]
     _chats.push(
-      <ChatFromProspect text={email} />,
-      <ChatFromAlmega text={'What is your website if you have one?'} />
+      <ChatFromProspect key={Math.random() * 1000} text={email} />,
+      <ChatFromAlmega key={Math.random() * 1000} text={'What is your website if you have one?'} />
     )
     toNextStep(_chats)
   }
@@ -121,8 +121,8 @@ export default function Chat(props: Props): JSX.Element {
     setStep(6)
     let _chats: JSX.Element[] = [...chats]
     _chats.push(
-      <ChatFromProspect text={website.length ? website : 'I have no website'} />,
-      <ChatFromAlmega text={'Please summarize the nature of your project.'} />
+      <ChatFromProspect key={Math.random() * 1000} text={website.length ? website : 'I have no website'} />,
+      <ChatFromAlmega key={Math.random() * 1000} text={'Please summarize the nature of your project.'} />
     )
     toNextStep(_chats)
   }
@@ -152,9 +152,9 @@ export default function Chat(props: Props): JSX.Element {
         element = (
           <PackageChoices
             answerChoices={[
-              <AnswerChoice clickAction={() => toStep2(GeneralPackage.design)} name="Website / App Design" image={Design} tooltip={'UI / UX Designs for your web or app'} mobile={mobile} />,
-              <AnswerChoice clickAction={() => toStep2(GeneralPackage.web)} name="Website Development" image={Website} tooltip={'We can deliver your website'} mobile={mobile} />,
-              <AnswerChoice clickAction={() => toStep2(GeneralPackage.app)} name="App Development" image={Develop} tooltip={'We can make custom mobile or web apps'} mobile={mobile} />,
+              <AnswerChoice key={`package-1`} clickAction={() => toStep2(GeneralPackage.design)} name="Website / App Design" image={Design} tooltip={'UI / UX Designs for your web or app'} mobile={mobile} />,
+              <AnswerChoice key={`package-2`} clickAction={() => toStep2(GeneralPackage.web)} name="Website Development" image={Website} tooltip={'We can deliver your website'} mobile={mobile} />,
+              <AnswerChoice key={`package-3`} clickAction={() => toStep2(GeneralPackage.app)} name="App Development" image={Develop} tooltip={'We can make custom mobile or web apps'} mobile={mobile} />,
             ]}
             closeChat={closeChat}
             mobile={mobile}
@@ -166,7 +166,7 @@ export default function Chat(props: Props): JSX.Element {
           <PackageChoices
             answerChoices={generalPackage ? (
               getServicePackages(generalPackage.toString()).map((pkg: ServicePackage, index: number) => {
-                return <AnswerChoice key={index} clickAction={() => toStep3(pkg)} name={pkg.name} image={pkg.thumbnail} tooltip={pkg.shortDesc} mobile={mobile} />
+                return <AnswerChoice key={`service-${index}`} clickAction={() => toStep3(pkg)} name={pkg.name} image={pkg.thumbnail} tooltip={pkg.shortDesc} mobile={mobile} />
               })
             ) : []}
             closeChat={closeChat}
